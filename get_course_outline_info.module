@@ -1,0 +1,23 @@
+<?php
+
+function _get_instructor($dept = 'bus', $number = '553', $section = 'g100') {
+	$json_url = "http://www.sfu.ca/bin/wcm/course-outlines?year=current&term=current&dept=".strtolower($dept)."&number=".strtolower($number)."&section=".strtolower($section);
+
+	$ch = curl_init($json_url);
+	$options = array(
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_HTTPHEADER => array('Content-type: application/json') ,
+			);
+	curl_setopt_array( $ch, $options );
+
+	$result =  curl_exec($ch);
+	$data = json_decode($result, true);
+
+	if ($data) {
+		return $data['instructor'][0]['name'];
+	} else {
+		return '';
+	}
+
+}
+
