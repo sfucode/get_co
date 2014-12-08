@@ -1,4 +1,0 @@
-name = Get instructor
-description = Use the SFU Course Outlines API to get the instructor
-version = VERSION
-core = 7.x

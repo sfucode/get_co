@@ -1,0 +1,4 @@
+name = Get course info from Course Outlines API
+description = Use the SFU Course Outlines API to get course information
+version = VERSION
+core = 7.x
